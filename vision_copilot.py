@@ -12,17 +12,16 @@ grasp_strategy = {
     'apple': 'Spherical'
 }
 
-# --- UPGRADED: DICTIONARY OF KNOWN WIDTHS (in cm) ---
-# The AI will look up the average real-world width of the object it detects
+
 KNOWN_WIDTHS = {
     'cell phone': 7.5,
-    'bottle': 7.0,      # Average water bottle width
-    'cup': 8.5,         # Average coffee mug width
-    'book': 15.0,       # Average paperback width
-    'apple': 7.5        # Average apple width
+    'bottle': 7.0,      
+    'cup': 8.5,         
+    'book': 15.0,       
+    'apple': 7.5        
 }
 
-# UPDATE THIS NUMBER TO YOUR CALIBRATED VALUE!
+
 FOCAL_LENGTH = 650 
 
 cap = cv2.VideoCapture(0)
@@ -49,15 +48,15 @@ while True:
             
             grasp = grasp_strategy.get(object_name, "Unknown")
             
-            # --- UPGRADED: DISTANCE CALCULATION FOR MULTIPLE OBJECTS ---
-            # Check if the detected object is in our dictionary of known widths
+            
+            
             if object_name in KNOWN_WIDTHS:
-                # Look up the specific width for this object
+                
                 real_width = KNOWN_WIDTHS[object_name]
                 pixel_width = x2 - x1 
                 
                 if pixel_width > 0:
-                    # Calculate distance using the correct width
+                    
                     distance_cm = (real_width * FOCAL_LENGTH) / pixel_width
                     
                     label = f"{object_name.upper()} | {grasp} | Dist: {distance_cm:.1f} cm"
