@@ -55,7 +55,7 @@ for subject_id in subjects:
         print(f"Subject {subject_id:2d} | Error: {e}")
 
 
-print("\n--------------------------------------------------")
+print("\n-------------------------------------------------")
 print(f"Universal Model Accuracy (Old Method): ~43.44%")
 print(f"Personalized Models Average (New Method): {np.mean(subject_scores):.2f}%")
-print("--------------------------------------------------")
+print("-------------------------------------------------")
